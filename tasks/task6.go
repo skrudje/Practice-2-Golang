@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func RunTask6() {
-	fmt.Println("\n--- Task 6: Атака Man-In-The-Middle (MITM) ---")
+func Attack() {
+	fmt.Println("\n    Task 6: Атака Man-In-The-Middle (MITM)    ")
 	
 	p := readBigInt("Введите общее простое число p: ")
 	g := readBigInt("Введите основание g: ")

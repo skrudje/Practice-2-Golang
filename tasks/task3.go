@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func RunTask3() {
-	fmt.Println("\n--- Task 3: Обратный элемент (C^-1 mod m) ---")
+func ReverseElement() {
+	fmt.Println("\n    Task 3: Обратный элемент (C^-1 mod m)    ")
 	c := readBigInt("Введите C: ")
 	m := readBigInt("Введите m: ")
 

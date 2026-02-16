@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func RunTask2() {
-	fmt.Println("\n--- Task 2: Алгоритм Евклида (ax + by = GCD) ---")
+func Evklid() {
+	fmt.Println("\n    Task 2: Алгоритм Евклида (ax + by = GCD)    ")
 	a := readBigInt("Введите a: ")
 	b := readBigInt("Введите b: ")
 

@@ -16,8 +16,8 @@ func readBigInt(label string) *big.Int {
 	return n
 }
 
-func RunTask1() {
-	fmt.Println("\n--- Task 1: Теорема Ферма ---")
+func Ferma() {
+	fmt.Println("\n    Task 1: Теорема Ферма    ")
 	a := readBigInt("Введите a: ")
 	x := readBigInt("Введите степень x: ")
 	p := readBigInt("Введите модуль p: ")

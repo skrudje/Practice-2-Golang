@@ -19,29 +19,20 @@ func main() {
 		var choice int
 		_, err := fmt.Scan(&choice)
 		if err != nil {
-			// очистка ввода если ошибка
 			var discard string
 			fmt.Scanln(&discard)
 			continue
 		}
 
 		switch choice {
-		case 1:
-			tasks.RunTask1()
-		case 2:
-			tasks.RunTask2()
-		case 3:
-			tasks.RunTask3()
-		case 4:
-			tasks.RunTask4()
-		case 5:
-			tasks.RunTask5()
-		case 6:
-			tasks.RunTask6()
-		case 0:
-			return
-		default:
-			fmt.Println("Неверный ввод.")
+		case 1: tasks.Ferma()
+		case 2: tasks.Evklid()
+		case 3: tasks.ReverseElement()
+		case 4: tasks.Hellman()
+		case 5: tasks.Diofantovo()
+		case 6: tasks.Attack()
+		case 0: return
+		default: fmt.Println("Неверный ввод.")
 		}
 	}
 }

@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func RunTask4() {
-	fmt.Println("\n--- Task 4: Диффи-Хеллман ---")
+func Hellman() {
+	fmt.Println("\n    Task 4: Диффи-Хеллман    ")
 	
 	p := readBigInt("Введите общее простое число p: ")
 	g := readBigInt("Введите основание g: ")
@@ -14,14 +14,12 @@ func RunTask4() {
 	aPriv := readBigInt("[Alice] Секретный ключ: ")
 	bPriv := readBigInt("[Bob] Секретный ключ: ")
 
-	// вычисление публичных ключей
 	aPub := cryptomath.PowerMod(g, aPriv, p)
 	bPub := cryptomath.PowerMod(g, bPriv, p)
 
 	fmt.Printf("Публичный ключ Alice: %s\n", aPub)
 	fmt.Printf("Публичный ключ Bob:   %s\n", bPub)
 
-	// вычисление секрета
 	secA := cryptomath.PowerMod(bPub, aPriv, p)
 	secB := cryptomath.PowerMod(aPub, bPriv, p)
 

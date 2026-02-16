@@ -4,11 +4,11 @@ import (
 	"math/big"
 )
 
-// хранит результат расширенного алгоритма евклида
+// результат расширенного алгоритма евклида
 type GCDResult struct {
-	D *big.Int // НОД
-	X *big.Int // кэф X
-	Y *big.Int // кэф Y
+	D *big.Int
+	X *big.Int
+	Y *big.Int
 }
 
 // возведение в степень по модулю
@@ -44,7 +44,7 @@ func PowerMod(base, exp, mod *big.Int) *big.Int {
 func ExtendedGCD(a, b *big.Int) GCDResult {
 	zero := big.NewInt(0)
 	
-	// базовый случай рекурсии: если b == 0
+	// если b == 0
 	if b.Cmp(zero) == 0 {
 		return GCDResult{
 			D: new(big.Int).Set(a),
@@ -53,13 +53,11 @@ func ExtendedGCD(a, b *big.Int) GCDResult {
 		}
 	}
 
-	// рекурсивный вызов ExtendedGCD(b, a % b)
-	rem := new(big.Int).Mod(a, b) // a % b
+	// рекурсивный вызов extentedgcd(b, a % b)
+	rem := new(big.Int).Mod(a, b)
 	res := ExtendedGCD(b, rem)
 
-	// x = y1
-	// y = x1 - (a/b) * y1
-	x := new(big.Int).Set(res.Y)
+	x := new(big.Int).Set(res.Y) // x = y1; y = x1 - (a/b) * y1
 	
 	div := new(big.Int).Div(a, b) // a / b
 	mul := new(big.Int).Mul(div, res.Y) // (a/b) * y1
@@ -68,9 +66,9 @@ func ExtendedGCD(a, b *big.Int) GCDResult {
 	return GCDResult{D: res.D, X: x, Y: y}
 }
 
-// првоерка на простоту.
+// првоерка на простоту
 func IsPrime(n *big.Int) bool {
-	return n.ProbablyPrime(20) // дает высокую гарантию
+	return n.ProbablyPrime(20)
 }
 
 // ModInverse - поиск обратного элемента (таск 3)
@@ -82,8 +80,7 @@ func ModInverse(a, m *big.Int) *big.Int {
 		return nil
 	}
 
-	// приводим х к положительному значению по модулю m
-	// (res.X % m + m) % m
+	// (res.X % m + m) % m (приводим х к положительному по модулю m)
 	x := res.X
 	x.Mod(x, m)
 	if x.Sign() < 0 {
